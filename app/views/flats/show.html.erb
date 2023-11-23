@@ -1,0 +1,53 @@
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @flat.img%>);">
+    <div class="container">
+      <h1><strong><%= @flat.name%></strong></h1>
+      <p><%= @flat.description%></p>
+      <a class="btn btn-primary" href="#">book now!</a>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-around my-3">
+<div class="card col-7 justify-content: between">
+  <div class="card-body d-flex flex-column" >
+    <h5 class="card-title"><%= @flat.name %></h5>
+    <p class="card-text"><%= @flat.description %></p>
+    <img src='<%='https://source.unsplash.com/blue-green-and-yellow-map-bjqw7-Jl1N0'%>' style="height: 20rem;" class="card-img-top img-fluid img-thumbnail object-fit-cover border rounded mb-3" alt="appartment">
+  </div>
+</div>
+<div class="card col-4">
+  <div class="card-body d-flex flex-column" >
+    <h5 class="card-title">Book this place!</h5>
+    <%= simple_form_for [@flat, @booking] do |f| %>
+    <%= f.input :from %>
+    <%= f.input :to %>
+    <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+    <div class="card p-3 mt-3">
+    <h5 class="card-title">Details</h5>
+    <p class="card-text"><%= @flat.description %></p>
+    <p class="card-text m-0 p-0 fw-bold">Adress </p>
+    <p> <%= @flat.address %></p>
+    <p class="card-text m-0 p-0 fw-bold">Price per night</p>
+    <p> <%= @flat.price_per_night %></p>
+    <p class="card-text m-0 p-0 fw-bold">Guests</p>
+    <p><%= @flat.number_of_guests %></p>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<%#
+  name: Faker::Ancient.god,
+  address: Faker::Address.full_address,
+  description: Faker::Quote.matz,
+  price_per_night: rand(50..500),
+  number_of_guests: rand(1..10) %>
